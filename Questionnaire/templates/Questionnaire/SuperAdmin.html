@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/assets/assets/css/all.min.css">
+    <link rel="stylesheet" href="../../static/assets/assets/css/SuperAdmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../../static/assets/assets/Opinion/assets/css/fontawesome.css" />
+    <title>Super Admin</title>
+
+ 
+</head>
+
+<style>
+  form {
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 24px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 24px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin-top: 20px;
+  font-size: 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+table {
+  margin: 0 auto;
+  font-size: 24px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+</style>
+
+<body>
+     <!-----------Start Header------------>
+     <header class="main-header clearfix" role="header">
+      <div class="logo">
+    
+        <img src="../../static/images/logo10.png" style="width: 36%;position: relative;bottom: 20px;">
+         
+       </div>
+        <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+        <nav id="menu" class="main-nav" role="navigation">
+          <ul class="main-menu">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="has-submenu">
+            
+            </li>
+
+            <li><a href="{% url 'index' %}">more info</a></li>
+            <!-- <li><a href="#section5">Video</a></li> -->
+            <li><a href="{% url 'index' %}">Contact US</a></li>
+            
+          </ul>
+        </nav>
+      </header>
+    
+
+      
+
+
+      <!-- <img src="images/pic4.jpg" alt="" class="pic"> -->
+
+
+    <!-----------End Header------------>
+     
+         <br> <br> <br> <br> <br> <br>
+ 
+      <h1 style="  font-family: math;
+      font-size: 49px;
+      color: #3b37a8;
+      font-weight: 900;"> Add New Admin </h1>  
+        </head>
+        <br><br>
+        <body>
+            <div class="container">
+              
+              <form method="post" action="{% url 'super_admin' %}">
+                {% csrf_token %}
+                
+                <label for="admin_name">Faculty:</label>
+                <input type="text" id="admin_name" name="admin_name" value="FCI" disabled><br>
+              
+                <label for="admin_email">Admin email:</label>
+
+                <input type="email" id="admin_email" name="admin_email" required><br>
+              
+                <input type="submit" value="Add admin">
+              </form>
+              <br><br>
+             {% if message %}
+                <p style=" 
+                
+                font-size: 24px;
+                color: #3b37a8;
+                font-weight: 500;
+                text-align: center;
+
+
+                ">{{ message }}</p>
+              {% endif %}
+              
+              
+
+
+ 
+            </div>     
+            <footer>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>
+                     FUCULTY OF CMPUTERS AND ARTIFICIAL INTELLIEGENCE
+                      <a href="https://www.facebook.com/FayoumU" rel="sponsored" target="_parent"
+                        >FCAI</a
+                      >
+                    </p>
+                    <a href="https://www.fayoum.edu.eg/facebook.aspx"><i class="fa-brands fa-twitter fa-xl icon"></i></a>
+                    <a href="https://twitter.com/FayUniversity"><i class="fa-brands fa-facebook fa-xl icon"></i></a>
+                    <a href="https://www.fayoum.edu.eg/"><i class="fa-solid fa-globe fa-xl icon"></i></a>
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <script src="../../static/assets/assets/js/SuperAdmin.js"></script>
+</body>
+</html>

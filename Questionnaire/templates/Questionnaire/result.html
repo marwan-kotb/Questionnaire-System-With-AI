@@ -1,0 +1,304 @@
+<!doctype html>
+<html> 
+<head>
+ 
+<title> Feedback Result</title> 
+<link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet"> 
+
+ <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+ <link rel="stylesheet" href="../../static/plugins/templatemo-grad-school.css">
+ <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+ <link rel="stylesheet" href="../../static/assets/assets/css/result.css">
+
+ <!-- Bootstrap core CSS -->
+ <link href="../../static//bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ 
+ <link rel="preconnect" href="https://fonts.gstatic.com" />
+ <link
+   href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+   rel="stylesheet"
+ />
+
+ <!-- Font Awesome -->
+ <link
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+   rel="stylesheet"
+ />
+
+ <!-- Flaticon Font -->
+ <link href="../../static/lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+ <!-- Libraries Stylesheet -->
+ <link href="../../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+ <link href="../../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+ <!-- Customized Bootstrap Stylesheet -->
+ <!-- <link href="assets/assets/courses/css/style.css" rel="stylesheet" /> -->
+ <link rel="stylesheet" href="../../static/assets/css/fontawesome.css">
+  
+ <link rel="stylesheet" href="../../static/assets/assets/Opinion/assets/css/fontawesome.css" />
+ 
+</head>
+
+<body>
+ 
+	<header class="main-header clearfix" role="header">
+		<div class="logo">
+		
+		  <img src="../../static/images/logo10.png" style="width: 36%;position: relative;bottom: 20px;">
+		   
+		 </div>
+		  <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+		  <nav id="menu" class="main-nav" role="navigation">
+			<ul class="main-menu">
+			  <li><a href="{% url 'index' %}">Home</a></li>
+			  <li class="has-submenu">
+			  
+			  </li>
+			  <li><a href="{% url 'index' %}#section2">More Info</a></li>
+        
+			  <li><a href="{% url 'index' %}#section6">Contact US</a></li>
+        
+			</ul>
+		  </nav>
+		</header>
+	  <img src="../../static/images/pic4.jpg" alt="" class="pic">
+
+
+<section class="heading-page header-text" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+ 
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="feedbackSection" >
+	<h1>All Feedback Result</h1>
+  <div class="filter">
+	{% if not message %}
+	<button class="button button_all" data-filter="all">All Feedback</button>
+	<button class="button button_instructor" data-filter="instructor">Instructor Feedback</button>
+	<button class="button button_course" data-filter="course">Course Feedback</button>
+	{% if sec %}
+	<button class="button button_section" data-filter="section">Section Feedback</button>
+	{% endif %}
+	{% if lab %}
+	<button class="button button_lab" data-filter="lab">Lab Feedback</button>
+	{% endif %}
+	{% endif %}
+  </div>
+
+		
+			 
+			<br><br><br>
+			{% if message %}
+			<div style="text-align: center;" class="alert alert-success" role="alert">
+				{{ message }}
+			</div>
+			{% else %}
+			<div class="b-results">
+				<div class="container">
+					
+
+					<div class="row">
+						<div class="col-xs-13 col-sm-7 col-md-4 ">
+							<div class="feedback-item center-block feedback instructor">
+								<div class="chart-container">
+									<div class="chart  " data-percent="{{lecturer_percaentage_positive}}" data-bar-color="green">
+										<span class="percent" data-after="%">{{lecturer_percaentage_positive}}</span>
+									</div>
+								</div>
+
+								<p>positive instructor </p>
+							</div>
+						</div>
+
+						<div class="col-xs-13 col-sm-7 col-md-4 ">
+							<div class="feedback-item center-block feedback instructor">
+								<div class="chart-container">
+									<div class="chart" data-percent="{{lecturer_percaentage_neutral}}" data-bar-color="yellow">
+										<span class="percent" data-after="%">{{lecturer_percaentage_neutral}}</span>
+									</div>
+								</div>
+
+								<p>neutral instructor</p>
+							</div>
+						</div>
+
+
+						<div class="col-xs-13 col-sm-7 col-md-4 ">
+							<div class="feedback-item center-block feedback instructor">
+								<div class="chart-container">
+									<div class="chart" data-percent="{{lecturer_percaentage_negative}}" data-bar-color="red">
+										<span class="percent" data-after="%">{{lecturer_percaentage_negative}}</span>
+									</div>
+								</div>
+
+								<p>negative instructor</p>
+							</div>
+						</div>
+
+						<div class="col-xs-13 col-sm-7 col-md-4 ">
+							<div class="feedback-item center-block feedback course">
+								<div class="chart-container">
+									<div class="chart " data-percent="{{lec_percaentage_positive}}" data-bar-color="green">
+										<span class="percent" data-after="%">{{lec_percaentage_positive}}</span>
+									</div>
+								</div>
+
+								<p>positive course</p>
+							</div>
+						</div>
+
+						<div class="col-xs-13 col-sm-7 col-md-4 ">
+							<div class="feedback-item center-block feedback course">
+								<div class="chart-container">
+									<div class="chart" data-percent="{{lec_percaentage_neutral}}" data-bar-color="yellow">
+										<span class="percent" data-after="%">{{lec_percaentage_neutral}}</span>
+									</div>
+								</div>
+
+								<p>neutral course</p>
+							</div>
+						</div>
+
+
+						<div class="col-xs-13 col-sm-7 col-md-4 ">
+							<div class="feedback-item center-block feedback course">
+								<div class="chart-container">
+									<div class="chart" data-percent="{{lec_percaentage_negative}}" data-bar-color="red">
+										<span class="percent" data-after="%">{{lec_percaentage_negative}}</span>
+									</div>
+								</div>
+
+								<p>negative course</p>
+							</div>
+						</div>
+
+
+						{% if sec %}
+						
+						<div class="col-xs-13 col-sm-7 col-md-4 " >
+							<div class="feedback-item center-block feedback section">
+								<div class="chart-container">
+									<div class="chart  " data-percent="{{sec_percaentage_positive}}" data-bar-color="green">
+										<span class="percent" data-after="%">{{sec_percaentage_positive}}</span>
+									</div>
+								</div>
+
+								<p>positive section</p>
+							</div>
+						</div>
+						
+
+						<div class="col-xs-13 col-sm-7 col-md-4 ">
+							<div class="feedback-item center-block feedback section">
+								<div class="chart-container">
+									<div class="chart" data-percent="{{sec_percaentage_neutral}}" data-bar-color="yellow">
+										<span class="percent" data-after="%">{{sec_percaentage_neutral}}</span>
+									</div>
+								</div>
+
+								<p>neutral section</p>
+							</div>
+						</div>
+
+
+						<div class="col-xs-13 col-sm-7 col-md-4 ">
+							<div class="feedback-item center-block feedback section">
+								<div class="chart-container">
+									<div class="chart" data-percent="{{sec_percaentage_negative}}" data-bar-color="red">
+										<span class="percent" data-after="%">{{sec_percaentage_negative}}</span>
+									</div>
+								</div>
+
+								<p>negative section</p>
+							</div>
+						</div>
+
+
+						{% endif %}
+
+						{% if lab %}
+
+						<div class="col-xs-13 col-sm-7 col-md-4 ">
+							<div class="feedback-item center-block feedback lab">
+								<div class="chart-container">
+									<div class="chart  " data-percent="{{lab_percaentage_positive}}" data-bar-color="green">
+										<span class="percent" data-after="%">{{lab_percaentage_positive}}</span>
+									</div>
+								</div>
+
+								<p>positive lab</p>
+							</div>
+						</div>
+
+
+
+						<div class="col-xs-13 col-sm-7 col-md-4 ">
+							<div class="feedback-item center-block feedback lab">
+								<div class="chart-container">
+									<div class="chart" data-percent="{{lab_percaentage_neutral}}" data-bar-color="yellow">
+										<span class="percent" data-after="%">{{lab_percaentage_neutral}}</span>
+									</div>
+								</div>
+
+								<p>neutral lab</p>
+							</div>
+						</div>
+
+
+						<div class="col-xs-13 col-sm-7 col-md-4 ">
+							<div class="feedback-item center-block feedback lab">
+								<div class="chart-container">
+									<div class="chart" data-percent="{{lab_percaentage_negative}}" data-bar-color="red">
+										<span class="percent" data-after="%">{{lab_percaentage_negative}}</span>
+									</div>
+								</div>
+
+								<p>negative lab</p>
+							</div>
+						</div>
+						
+						{% endif %}
+						
+					</div>
+				</div>
+			</div>
+		</section>
+    
+		{% endif %}
+ 
+  <br><br><br><br>  
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+           FUCULTY OF CMPUTERS AND ARTIFICIAL INTELLIEGENCE
+            <a href="https://www.facebook.com/FayoumU" rel="sponsored" target="_parent"
+              >FCAI</a
+            >
+          </p>
+		  <a href="https://www.fayoum.edu.eg/facebook.aspx"><i class="fa-brands fa-twitter fa-xl icon"></i></a>
+          <a href="https://twitter.com/FayUniversity"><i class="fa-brands fa-facebook fa-xl icon"></i></a>
+          <a href="https://www.fayoum.edu.eg/"><i class="fa-solid fa-globe fa-xl icon"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+ <script src="../../static/plugins/jquery-2.2.4.min.js"></script>
+ <script src="../../static/plugins/jquery.appear.min.js"></script>
+ <script src="../../static/plugins/jquery.easypiechart.min.js"></script> 
+ <script src="../../static/plugins/result.js"></script>
+   
+</body>
+ 
+</html>

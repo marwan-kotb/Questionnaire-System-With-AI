@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editcourse</title>
+    <link rel ="stylesheet" href="../../static/assets/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/assets/assets/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="stylesheet" href="../../static/assets/assets/css/Edit.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
+<script src="https://unpkg.com/odf-converter"></script>
+
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+
+  <!-- start css for style  -->
+
+  <style> 
+    form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.form-group {
+  margin-right: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  display: block;
+  text-align: center; /* added property */
+}
+
+select,
+input[type="text"] {
+  padding: 12px 30px; /* increased padding */
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  color: #555;
+  background-color: #f5f5f5;
+  box-shadow: inset 0px 0px 5px #ccc;
+  transition: box-shadow 0.3s ease-in-out;
+  height: 48px; /* increased height */
+}
+
+select:focus,
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0px 0px 5px #6c63ff;
+}
+
+select {
+  appearance:none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41,8.59L12,13.17l4.59-4.58L18,10l-6,6l-6-6L7.41,8.59z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+}
+
+input[type="submit"] {
+  background-color: #6c63ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #5248d4;
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    max-width: 768px;
+  }
+}
+
+body {
+  background: linear-gradient(to bottom, #8e8e9c, #c9c5f7);
+}
+  </style>
+
+
+  </head>
+  <body>
+
+     <!-----------Start Header------------>
+     <header class="main-header clearfix" role="header">
+        <div class="logo">
+          <img src="../../static/images/logo10.png" style="width: 36%;position: relative;bottom: 20px;">
+        </div>
+        <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+        <nav id="menu" class="main-nav" role="navigation">
+          <ul class="main-menu">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="has-submenu">
+            
+            </li>
+            <li><a href="{% url 'index' %}">more info</a></li>
+            <!-- <li><a href="#section5">Video</a></li> -->
+            <li><a href="{% url 'index' %}">Contact US</a></li>
+          </ul>
+        </nav>
+      </header>
+
+    <!-----------End Header------------>
+
+    <br>
+    <br>
+
+
+    <form action="{% url 'edit_course' %}" method="post">
+      {% csrf_token %}
+
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="semester_no">Semester:</label>
+          <select id="semester_no" name="semester_no">
+            {% for semester in semesters %}
+              <option value="{{semester.id}}">{{semester}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="course_name">Course Name:</label>
+          <input type="text" id="course_name" name="course_name">
+        </div>
+        <div class="form-group">
+          <label for="course_code">Course Code:</label>
+          <input type="text" id="course_code" name="course_code">
+        </div>
+        <div class="form-group">
+          <label for="credit_hours">Credit Hours:</label>
+          <input type="number" id="credit_hours" name="credit_hours" min="1" max="4" required> 
+        </div>
+      </div>
+    
+      <div class="form-row">
+        <div class="form-group">
+          <label for="lecturer_name">Lecturer:</label>
+          <select id="lecturer_name" name="lecturer_name">
+            {% for instructor in instructors %}
+              <option value="{{instructor.user_id}}">{{instructor}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="instructor_lab">Teaching Assistant (Lab):</label>
+          <select id="instructor_lab" name="instructor_lab">
+            <option value="None">None</option>
+            {% for instructor in teaching_assistants %}
+              <option value="{{instructor.user_id}}">{{instructor}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="instructor_sec">Teaching Assistant (Section):</label>
+          <select id="instructor_sec" name="instructor_sec">
+            <option value="None">None</option>
+            {% for instructor in teaching_assistants %}
+              <option value="{{instructor.user_id}}">{{instructor}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="objectives">Objectives:</label>
+          <textarea style="padding: 100px 100px;" id="objectives" name="objectives" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="aims">Aims:</label>
+          <textarea style="padding: 100px 100px;" id="aims" name="aims" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="outcomes">Outcomes:</label>
+          <textarea style="padding: 100px 100px;" id="outcomes" name="outcomes" required></textarea>
+        </div>
+      </div>
+    
+      <input type="submit" value="Submit">
+      <!-- <table class="table table-bordered">
+        <br>
+        <br>
+        
+        <br>
+          <thead>
+              <tr>
+                  <th scope="col">Semesters</th>
+                  <th scope="col">Course Code</th>
+                  <th scope="col">Course Name</th>
+                  <th scope="col">Lecturer Name</th>
+                  <th scope="col">Teaching Assistant of Lab</th>
+                  <th scope="col">Teaching Assistant of Section</th>
+                  <th scope="col">Students</th>
+                  <th scope="col">Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              
+              <tr>
+                  <td>
+                    <select id="semester_no" name="semester_no" required>
+                      {% for semester in semesters %}
+                         <option value="{{semester.id}}">{{semester}}</option>
+                      {% endfor %}
+                    </select>
+                  </td>
+                  <td>
+                      <input type="text" name="course_code" class="form-control" value="" required>
+                  </td>
+                  <td>
+                      <input type="text" name="course_name" class="form-control" value="" required>
+                  </td>
+                  <td>
+                    <select id="lecturer" name="lecturer_name" required>
+                      {% for instructor in instructors %}
+                         <option value="{{instructor.user_id}}">{{instructor}}</option>
+                      {% endfor %}
+                    </select>
+                  </td>
+                  
+                 <td>
+                  <select id="lab" name="instructor_lab" >
+                    {% for instructor in teaching_assistants %}
+                         <option value="{{instructor.user_id}}">{{instructor}}</option>
+                      {% endfor %}
+                  </select>
+                </td>
+                <td>
+                  <select id="sec" name="instructor_sec">
+                    {% for instructor in teaching_assistants %}
+                         <option value="{{instructor.user_id}}">{{instructor}}</option>
+                      {% endfor %}
+                  </select>
+                </td> 
+                <td>
+                  <select id="students" name="studentss" multiple>
+                    {% for student in students %}
+                       <option value="{{student.user_id}}">{{student}}</option>
+                    {% endfor %}
+                  </select>
+                </td>
+                  <td>
+                      <input class="btn btn-danger" type="button" id="remove_row" value="Remove" onclick="removeRow(this)">
+                  </td>
+              </tr>
+      
+          </tbody>
+      </table>
+      <input type="submit" class="btn save" value="Save"> -->
+  </form>
+<br>
+<br>
+  {% if message %}
+  <div style="text-align: center;">{{ message }}</div>
+{% endif %}  
+
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="col-lg-12">
+    <a href="{% url 'options' %}" class="btn btn-primary px-4 mx-auto my-2">Back</a>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+  
+
+        <!-----footer---------->
+        <footer>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <p>
+                  Faculty Of Computers and Artificial Intelligence
+                  
+                      <a href="https://www.facebook.com/FayoumU" rel="sponsored" target="_parent"
+                      >FCI</a>
+
+                 
+                  </p>
+                  <a href="https://www.fayoum.edu.eg/facebook.aspx"><i class="fa-brands fa-twitter fa-xl icon"></i></a>
+                  <a href="https://twitter.com/FayUniversity"><i class="fa-brands fa-facebook fa-xl icon"></i></a>
+                  <a href="https://www.fayoum.edu.eg/"><i class="fa-solid fa-globe fa-xl icon"></i></a>
+                </div>
+              </div>
+            </div>
+          </footer>
+          <!---------------End Fooetr----------->
+          
+        <script src="../../static/assets/assets/js/controle.js"></script>
+        <script src="../../static/index/vendor/jquery/jquery.min.js"></script>
+        <script src="../../static/index/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+        <script src="../../static/assets/js/isotope.min.js"></script>
+        <script src="../../static/assets/js/owl-carousel.js"></script>
+        <script src="../../static/assets/js/lightbox.js"></script>
+        <script src="../../static/assets/js/tabs.js"></script>
+        <script src="../../static/assets/js/video.js"></script>
+        <script src="../../static/assets/js/slick-slider.js"></script>
+        <script src="../../static/assets/js/custom.js"></script>
+        <script src="../../static/assets/js/index.js"></script>
+ 
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Form</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/assets/assets/Opinion/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../../static/assets/assets/Opinion/assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="../../static/assets/assets/Opinion/assets/css/templatemo-scholar.css" />
+    <link rel="stylesheet" href="../../static/assets/assets/Opinion/assets/css/owl.css" />
+    <link rel="stylesheet" href="../../static/assets/assets/Opinion/assets/css/animate.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <!--
+
+TemplateMo 586 Scholar
+
+https://templatemo.com/tm-586-scholar
+
+-->
+  </head>
+
+  <body>
+     <!-- ***** Preloader Start ***** -->
+     <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav" role="navigation">
+              <!-- ***** Logo Start ***** -->
+              <div class="logo">
+      
+                <img src="../../static/images/logo10.png" style="width: 45%;position: relative;bottom: 25px;">
+                 
+               </div>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Serach Start ***** -->
+              <div class="search-input"></div>
+              <!-- ***** Serach Start ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav">
+                <li class="scroll-to-section">
+                  <a href="{% url 'index' %}" class="active">Home</a>
+                </li>
+            
+                <li class="scroll-to-section">
+                  <a href="{% url 'courses' %}">Courses</a>
+                </li>
+                <li class="scroll-to-section">
+                  <a href="{% url 'course' course.id %}">About Course</a>
+                </li>
+                <li class="scroll-to-section">
+                
+        
+                  <li><a href="{% url 'index' %}#section6">Contact US</a></li>
+                </li>
+              </ul>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <img src="../../static/images/pic4.jpg" alt="" class="pic">
+    <!-- ***** Header Area End ***** -->
+
+  
+    <div class="main-banner" id="top1">
+      <div class="container">
+        <div class="row">
+          <div>
+            <div class="owl-carousel owl-banner">
+              <div class="item item-1">
+                <div class="header-text"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+   <form action="{% url 'questionnaire' course.id %}" method="post">
+    {% csrf_token %}
+
+    <div class="section testimonials">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="owl-carousel owl-testimonials">
+              <div class="item">
+                <h1 >Course Of {{course.CourseName}}</h1>
+        
+                <div class="form-outline" >
+                  <textarea class="form-control" id="lectextArea" rows="8" name="lec"></textarea>
+                  <label class="form-label" for="lectextArea"></label>
+                </div>
+                <div class="author">
+                  <span class="category">{{course.CourseName}}</span>
+                </div>
+              </div>
+              <div class="item">
+                <h1 >Lecturer Of {{course.CourseName}}</h1>
+        
+                <div class="form-outline">
+                  <textarea class="form-control" id="lecturertextArea" rows="8" name="lectuerer"></textarea>
+                  <label class="form-label" for="lecturertextArea"></label>
+                </div>
+                <div class="author">
+                  <span class="category">{{course.CourseName}}</span>
+                </div>
+              </div>
+              {% if lab %}
+              <div class="item">
+                <h1 >Lab Of {{course.CourseName}}</h1>
+        
+                <div class="form-outline">
+                  <textarea class="form-control" id="labtextArea" rows="8" name="lab" ></textarea>
+                  <label class="form-label" for="labtextArea"></label>
+                </div>
+                <div class="author">
+                  <span class="category"> {{course.CourseName}}</span>
+                </div>
+              </div>
+              {% endif %}
+              {% if sec %}
+              <div class="item">
+                <h1 >Section Of {{course.CourseName}}</h1>
+        
+                <div class="form-outline">
+                  <textarea class="form-control" id="sectextArea" rows="8" name="sec" ></textarea>
+                  <label class="form-label" for="sectextArea"></label>
+                </div>
+                <div class="author">
+                  <span class="category"> {{course.CourseName}}</span>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-5 align-self-center">
+            <div class="section-heading">
+      
+              <h2>Questionnaire Form</h2>
+              <p>
+                Write your opinions about Lectuerers , course , lab and section
+              </p>
+              <h4>Year : <span>{{semester.year}}</span></h4>
+              <h4>Semester : <span>{{semester.semester}}</span></h4>
+              <h4>Level :<span>{{student.level}}</span> </h4>
+              <div class="main-button">
+                <input type="submit" class="btn btn-primary" value="Go To Next Page"> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   </form>
+
+    <footer>
+      <div class="container">
+        <div class="col-lg-12">
+          <p id="footer">Faculty Of Computers And Artificial Intelligence <a href="https://www.facebook.com/FayoumU" rel="sponsored" target="_parent"
+            >FCAI</a></p>
+            <a href="https://www.fayoum.edu.eg/facebook.aspx"><i class="fa-brands fa-twitter fa-xl icon"></i></a>
+            <a href="https://twitter.com/FayUniversity"><i class="fa-brands fa-facebook fa-xl icon"></i></a>
+            <a href="https://www.fayoum.edu.eg/"><i class="fa-solid fa-globe fa-xl icon"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../static/assets/assets/Opinion/vendor/jquery/jquery.min.js"></script>
+    <script src="../../static/assets/assets/Opinion/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../static/assets/assets/Opinion/assets/js/isotope.min.js"></script>
+    <script src="../../static/assets/assets/Opinion/assets/js/owl-carousel.js"></script>
+    <script src="../../static/assets/assets/Opinion/assets/js/counter.js"></script>
+    <script src="../../static/assets/assets/Opinion/assets/js/custom.js"></script>
+  </body>
+</html>

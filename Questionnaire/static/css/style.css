@@ -1,0 +1,87 @@
+svg
+{
+float:left;
+width:100%;
+height:100%;
+}
+
+.svg_row
+{
+display: inline-block;
+position: relative;
+width: 100%;
+height:100%;
+vertical-align: middle;  
+text-align:center;
+}
+
+h4
+{
+	text-align:center;
+}
+
+.title
+{
+	text-align:center;
+	font: 700 18px/32px 'Open Sans', sans-serif;
+	text-transform:uppercase;
+}
+
+.info_text
+{
+font: 900 16px/12px 'Open Sans', sans-serif;
+display:none;
+}
+
+.mup
+{
+	margin-top:50px;
+}
+
+.button-center
+{
+	padding:20px 0px;
+	text-align:center;
+}
+
+.menu_title
+{
+	font: 700 18px/28px 'Open Sans', sans-serif;
+	display:none;
+}
+
+ul {
+	list-style-type: disc;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	
+	
+  }
+#Strongly_Disagree,#Strongly_Disagree::marker
+{
+	color: #ffb6b9;
+	font-size: 25px;
+}
+#ok,#ok::marker
+{
+	color: #a56e56;
+	font-size: 25px;
+}
+
+#Not_Agree,#Not_Agree::marker
+{
+	color: #616967;
+	font-size: 25px;
+}
+#extent,#extent::marker{
+	color: #61c0bf;
+	font-size: 25px;
+}
+#Strongly_Agree,#Strongly_Agree::marker{
+	color: #ff5959;
+	font-size: 25px;	
+}
+#none,#none::marker{
+	color: #085f63;
+	font-size: 25px;	
+}
+

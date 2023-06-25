@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Courses</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Free HTML Templates" name="keywords" />
+    <meta content="Free HTML Templates" name="description" />
+
+    <!-- Favicon -->
+    <link href="../../static/assets/courses/img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Font -->
+    <link href="../../static/lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="../../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="../../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../static/assets/assets/courses/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../static/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../../static/assets/assets/Opinion/assets/css/fontawesome.css" />
+  </head>
+
+  <body>
+    <header class="main-header clearfix" role="header">
+      <div class="logo">
+      
+       <img src="../../static/images/logo10.png" style="width: 36%;position: relative;bottom: 20px;">
+        
+      </div>
+      <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+      <nav id="menu" class="main-nav" role="navigation">
+        <ul class="main-menu">
+          <li><a href="{% url 'index' %}">Home</a></li>
+         
+          <li><a href="{% url 'index' %}#section2">More Info</a></li>
+        
+            <li><a href="{% url 'index' %}#section6">Contact US</a></li>
+        </ul>
+      </nav>
+    </header>
+    <img src="../../static/images/pic4.jpg" alt="" class="pic">
+  <!-- Navbar End -->
+    <!-- Blog Start -->
+    <div class="container-fluid pt-5">
+      <div class="container">
+        <div class="text-center pb-2">
+          <h3 class="mb-4">Name : {{student.user.username}}</h3>
+          <h3 class="mb-4">Email : {{student.user.email}}</h3>
+          <h3 class="mb-4">level : {{student.level}}</h3>
+          <p class="section-title px-5">
+            <br>
+            <br>
+            <br>
+            <span class="px-2"> Your Courses</span>
+          </p>
+        </div>
+
+
+        <div class="row pb-3">
+          
+          {% for course in courses %}
+
+          <div class="col-lg-4 mb-4">
+            <div class="card border-0 shadow-sm mb-2">
+              <img class="card-img-top mb-2" src="../../static/assets/assets/courses/img/cs.jpg" alt="" />
+              <div class="card-body bg-light text-center p-4">
+                <h4 class="">{{course.CourseName}}</h4>
+            
+                <a href="{% url 'course' course.id %}" class="btn btn-primary px-4 mx-auto my-2"
+                  >Read More</a
+                >
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- Blog End -->
+
+    <!-- Footer Start -->
+    
+  <!-- Footer Start -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+           FUCULTY OF CMPUTERS AND ARTIFICIAL INTELLIEGENCE
+            <a href="https://www.facebook.com/FayoumU" rel="sponsored" target="_parent"
+              >FCAI</a
+            >
+          </p>
+          <a href="https://www.fayoum.edu.eg/facebook.aspx"><i class="fa-brands fa-twitter fa-xl icon"></i></a>
+          <a href="https://twitter.com/FayUniversity"><i class="fa-brands fa-facebook fa-xl icon"></i></a>
+          <a href="https://www.fayoum.edu.eg/"><i class="fa-solid fa-globe fa-xl icon"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- Footer End -->
+
+       <!-- JavaScript Libraries -->
+
+       <script src="../../static/assets/js/isotope.min.js"></script>
+       <script src="../../static/assets/js/owl-carousel.js"></script>
+       <script src="../../static/assets/js/lightbox.js"></script>
+       <script src="../../static/assets/js/tabs.js"></script>
+       <script src="../../static/assets/js/video.js"></script>
+       <script src="../../static/assets/js/slick-slider.js"></script>
+       <script src="../../static/assets/js/custom.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../../static/assets/assets/courses/js/main.js"></script>
+
+
+  </body>
+</html>

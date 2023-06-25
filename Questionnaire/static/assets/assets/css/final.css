@@ -1,0 +1,25 @@
+body {
+  margin: 0%;
+  padding: 0%;
+  background-color: rgba(122, 108, 165, 0.589);
+}
+body .box {
+  width: 70%;
+  height: 50vh;
+  margin: auto;
+  margin-top: 3rem;
+  padding: 20px;
+  text-align: center;
+  font-size: 3rem;
+  background-image: linear-gradient(#464c7a, #5a62a1, #646db1, #6771b7);
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 10px 10px #5460b6;
+}
+body .box p span {
+  color: #2c3157;
+  font-size: 3.5rem;
+  font-style: italic;
+}
+
+/*# sourceMappingURL=final.css.map */

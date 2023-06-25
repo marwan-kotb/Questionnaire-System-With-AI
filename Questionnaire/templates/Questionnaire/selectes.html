@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/assets/assets/css/styleOPINION.css">
+    <link rel="stylesheet" href="../../static/assets/assets/css/all.min.css">
+    <link href="../../static/assets/courses/img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Font -->
+    <link href="../../static/lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="../../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="../../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="../../static/assets/css/fontawesome.css">
+    <title>Selected</title>
+</head>
+
+<body>
+    <header class="main-header clearfix" role="header">
+        <div class="logo">
+        
+         <img src="../../static/images/logo10.png" style="width: 36%;position: relative;bottom: 20px;">
+          
+        </div>
+        <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+        <nav id="menu" class="main-nav" role="navigation">
+          <ul class="main-menu">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'courses' %}">Courses</a></li>
+            <li class="has-submenu">
+              <a href="#">Questionnaire items</a>
+              <ul class="sub-menu">
+                <li><a href="#TLO">Targeted learning outcomes</a></li>
+                <li><a href="#C&B">Course and book</a></li>
+                <li><a href="#MME">Means and methods of evaluation</a></li>
+                <li><a href="#Lec">The lecturer</a></li>
+                <li><a href="#AB">Auxiliary body</a></li>
+                <li><a href="#HE">Hybrid education</a></li>
+              </ul>
+            </li>
+            
+            <li><a href="#GN">General Notes</a></li>
+            <!-- <li><a href="#section5">Video</a></li> -->
+            
+          </ul>
+        </nav>
+      </header>
+  
+    <img src="../../static/images/pic4.jpg" alt="" class="pic">
+    <!-- *******************************END OF HEADER -->
+    <section class="body">
+        <h1>Course Questionnaire</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th style="font-size: 25px; width: 62%; padding-left: 10px;">Questionnaire items</th>
+                    <th>Strongly Agree</th>
+                    <th>Agree</th>
+                    <th>Neutral</th>
+                    <th>Disagree</th>
+                    <th>Strongly Disagree</th>
+                </tr>
+            </thead>
+        </table>
+        <br>
+        <form action="{% url 'selects' course.id %}" method="post">
+
+        {% csrf_token %}
+        <p class="item" id="TLO">Targeted learning outcomes</p>
+        <div>
+            <div>
+                <h3>The course has clear and stated objectives</h3>
+                <div class="input">
+                    <input type="radio" name="question1" value="1">
+                    <input type="radio" name="question1" value="2">
+                    <input type="radio" name="question1" value="3">
+                    <input type="radio" name="question1" value="4">
+                    <input type="radio" name="question1" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The course develops the ability to think and innovate</h3>
+                <div class="input">
+                    <input type="radio" name="question2" value="1">
+                    <input type="radio" name="question2" value="2">
+                    <input type="radio" name="question2" value="3">
+                    <input type="radio" name="question2" value="4">
+                    <input type="radio" name="question2" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The course provides me with useful knowledge and understanding related<br> to the subject</h3>
+                <div class="input">
+                    <input type="radio" name="question3" value="1">
+                    <input type="radio" name="question3" value="2">
+                    <input type="radio" name="question3" value="3">
+                    <input type="radio" name="question3" value="4">
+                    <input type="radio" name="question3" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The course combines theoretical and practical aspects</h3>
+                <div class="input">
+                    <input type="radio" name="question4" value="1">
+                    <input type="radio" name="question4" value="2">
+                    <input type="radio" name="question4" value="3">
+                    <input type="radio" name="question4" value="4">
+                    <input type="radio" name="question4" value="5">
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr><br>
+        <!-- *************************************************************** -->
+        <p class="item" id="C&B">Course and book</p>
+        <div>
+            <div>
+                <h3>The contents of the course are commensurate with the allotted time</h3>
+                <div class="input">
+                    <input type="radio" name="question5" value="1">
+                    <input type="radio" name="question5" value="2">
+                    <input type="radio" name="question5" value="3">
+                    <input type="radio" name="question5" value="4">
+                    <input type="radio" name="question5" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>References are available in the collage library or in one of the<br> other electronic images</h3>
+                <div class="input">
+                    <input type="radio" name="question6" value="1">
+                    <input type="radio" name="question6" value="2">
+                    <input type="radio" name="question6" value="3">
+                    <input type="radio" name="question6" value="4">
+                    <input type="radio" name="question6" value="5">
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr><br>
+        <!-- *********************************************************************** -->
+        <p class="item" id="MME">Means and methods of evaluation</p>
+        <div>
+            <div>
+                <h3>Examinations reflect the content of the course and include<br> theoretical and practical aspects
+                </h3>
+                <div class="input">
+                    <input type="radio" name="question7" value="1">
+                    <input type="radio" name="question7" value="2">
+                    <input type="radio" name="question7" value="3">
+                    <input type="radio" name="question7" value="4">
+                    <input type="radio" name="question7" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The language used in the exams is clear and understandable</h3>
+                <div class="input">
+                    <input type="radio" name="question8" value="1">
+                    <input type="radio" name="question8" value="2">
+                    <input type="radio" name="question8" value="3">
+                    <input type="radio" name="question8" value="4">
+                    <input type="radio" name="question8" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>Exams do not contain typographical errors</h3>
+                <div class="input">
+                    <input type="radio" name="question9" value="1">
+                    <input type="radio" name="question9" value="2">
+                    <input type="radio" name="question9" value="3">
+                    <input type="radio" name="question9" value="4">
+                    <input type="radio" name="question9" value="5">
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr><br>
+        <!-- *************************************************************** -->
+        <p class="item" id="Lec"> The lecturer </p>
+        <div>
+            <div>
+                <h3>The lecturer explained the course contents and evaluation methods at the <br>start of the study</h3>
+                <div class="input">
+                    <input type="radio" name="question10" value="1">
+                    <input type="radio" name="question10" value="2">
+                    <input type="radio" name="question10" value="3">
+                    <input type="radio" name="question10" value="4">
+                    <input type="radio" name="question10" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The clarity of the lecturer's presentation of the scientific material of<br> the course</h3>
+                <div class="input">
+                    <input type="radio" name="question11" value="1">
+                    <input type="radio" name="question11" value="2">
+                    <input type="radio" name="question11" value="3">
+                    <input type="radio" name="question11" value="4">
+                    <input type="radio" name="question11" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The lecturer committed to attending the lectures on time and according to<br> the announced schedule
+                </h3>
+                <div class="input">
+                    <input type="radio" name="question12" value="1">
+                    <input type="radio" name="question12" value="2">
+                    <input type="radio" name="question12" value="3">
+                    <input type="radio" name="question12" value="4">
+                    <input type="radio" name="question12" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The lecturer pavalue attention to the link between the scientific material<br> and the practical
+                    applications
+                    of the course topics</h3>
+                <div class="input">
+                    <input type="radio" name="question13" value="1">
+                    <input type="radio" name="question13" value="2">
+                    <input type="radio" name="question13" value="3">
+                    <input type="radio" name="question13" value="4">
+                    <input type="radio" name="question13" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The lecturer used a variety of appropriate teaching avalues to explain the<br> course</h3>
+                <div class="input">
+                    <input type="radio" name="question14" value="1">
+                    <input type="radio" name="question14" value="2">
+                    <input type="radio" name="question14" value="3">
+                    <input type="radio" name="question14" value="4">
+                    <input type="radio" name="question14" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>Encourage the lecturer to discuss, comment, ask and answer questions</h3>
+                <div class="input">
+                    <input type="radio" name="question15" value="1">
+                    <input type="radio" name="question15" value="2">
+                    <input type="radio" name="question15" value="3">
+                    <input type="radio" name="question15" value="4">
+                    <input type="radio" name="question15" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The ability of the lecturer to manage and control the lecture</h3>
+                <div class="input">
+                    <input type="radio" name="question16" value="1">
+                    <input type="radio" name="question16" value="2">
+                    <input type="radio" name="question16" value="3">
+                    <input type="radio" name="question16" value="4">
+                    <input type="radio" name="question16" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The lecturer is equal in dealing with all students</h3>
+                <div class="input">
+                    <input type="radio" name="question17" value="1">
+                    <input type="radio" name="question17" value="2">
+                    <input type="radio" name="question17" value="3">
+                    <input type="radio" name="question17" value="4">
+                    <input type="radio" name="question17" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The lecturer is committed to being in his office during office hours<br> to communicate with
+                    students
+                </h3>
+                <div class="input">
+                    <input type="radio" name="question18" value="1">
+                    <input type="radio" name="question18" value="2">
+                    <input type="radio" name="question18" value="3">
+                    <input type="radio" name="question18" value="4">
+                    <input type="radio" name="question18" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>Would you like to study other courses with the same lecturer in the future?</h3>
+                <div class="input">
+                    <input type="radio" name="question19" value="1">
+                    <input type="radio" name="question19" value="2">
+                    <input type="radio" name="question19" value="3">
+                    <input type="radio" name="question19" value="4">
+                    <input type="radio" name="question19" value="5">
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr><br>
+        <!-- ******************************************************************************** -->
+        <p class="item" id="AB"> Auxiliary body</p>
+        <div>
+            <div>
+                <h3>The teaching assistant is committed to attending classes and laboratories<br> on time</h3>
+                <div class="input">
+                    <input type="radio" name="question20" value="1">
+                    <input type="radio" name="question20" value="2">
+                    <input type="radio" name="question20" value="3">
+                    <input type="radio" name="question20" value="4">
+                    <input type="radio" name="question20" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The teaching assistant encourages students to work in groups during<br> exercises and practical work
+                </h3>
+                <div class="input">
+                    <input type="radio" name="question21" value="1">
+                    <input type="radio" name="question21" value="2">
+                    <input type="radio" name="question21" value="3">
+                    <input type="radio" name="question21" value="4">
+                    <input type="radio" name="question21" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The teaching assistant is equal in dealing with all students</h3>
+                <div class="input">
+                    <input type="radio" name="question22" value="1">
+                    <input type="radio" name="question22" value="2">
+                    <input type="radio" name="question22" value="3">
+                    <input type="radio" name="question22" value="4">
+                    <input type="radio" name="question22" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The teaching assistant deals with topics covering the practical and<br> applied aspects of the
+                    course
+                </h3>
+                <div class="input">
+                    <input type="radio" name="question23" value="1">
+                    <input type="radio" name="question23" value="2">
+                    <input type="radio" name="question23" value="3">
+                    <input type="radio" name="question23" value="4">
+                    <input type="radio" name="question23" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The teaching assistant invests the time of classes and laboratories in <br> and discussion and
+                    provides sufficient applications</h3>
+                <div class="input">
+                    <input type="radio" name="question24" value="1">
+                    <input type="radio" name="question24" value="2">
+                    <input type="radio" name="question24" value="3">
+                    <input type="radio" name="question24" value="4">
+                    <input type="radio" name="question24" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3> Would you like to study other courses with the same teaching assistant<br> in the future?</h3>
+                <div class="input">
+                    <input type="radio" name="question25" value="1">
+                    <input type="radio" name="question25" value="2">
+                    <input type="radio" name="question25" value="3">
+                    <input type="radio" name="question25" value="4">
+                    <input type="radio" name="question25" value="5">
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr><br>
+        <!-- *************************************************************** -->
+        <p class="item" id="HE">Hybrid education</p>
+        <div>
+            <div>
+                <h3>Level of satisfaction with hybrid education</h3>
+                <div class="input">
+                    <input type="radio" name="question26" value="1">
+                    <input type="radio" name="question26" value="2">
+                    <input type="radio" name="question26" value="3">
+                    <input type="radio" name="question26" value="4">
+                    <input type="radio" name="question26" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3> The extent to which the hybrid education system effectively <br>contributes to the success of the
+                    educational process</h3>
+                <div class="input">
+                    <input type="radio" name="question27" value="1">
+                    <input type="radio" name="question27" value="2">
+                    <input type="radio" name="question27" value="3">
+                    <input type="radio" name="question27" value="4">
+                    <input type="radio" name="question27" value="5">
+
+                </div>
+            </div>
+            <div>
+                <h3>The effectiveness of the IT Unit's role in solving technical problems</h3>
+                <div class="input">
+                    <input type="radio" name="question28" value="1">
+                    <input type="radio" name="question28" value="2">
+                    <input type="radio" name="question28" value="3">
+                    <input type="radio" name="question28" value="4">
+                    <input type="radio" name="question28" value="5">
+
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <hr><br>
+        <!-- *************************************************************** -->
+        
+        
+        <input type="submit" value="Submit" id="submit">
+
+    </form>
+        <!-- *******************************************************START OF FOOTER -->
+    </section>
+    <footer>
+        <div class="container">
+          <div class="col-lg-12">
+            <p id="footer">Faculty Of Computers And Artificial Intelligence <a href="https://www.facebook.com/FayoumU" rel="sponsored" target="_parent"
+              >FCAI</a></p>
+              <a href="https://www.fayoum.edu.eg/facebook.aspx"><i class="fa-brands fa-twitter fa-xl icon"></i></a>
+              <a href="https://twitter.com/FayUniversity"><i class="fa-brands fa-facebook fa-xl icon"></i></a>
+              <a href="https://www.fayoum.edu.eg/"><i class="fa-solid fa-globe fa-xl icon"></i></a>
+          </div>
+        </div>
+      </footer>
+</body>
+    <!-- Scripts -->
+    <script src="../../static/assets/js/isotope.min.js"></script>
+    <script src="../../static/assets/js/custom.js"></script>
+    <script src="../../static/assets/js/isotope.min.js"></script>
+    <script src="../../static/assets/js/owl-carousel.js"></script>
+    <script src="../../static/assets/js/lightbox.js"></script>
+    <script src="../../static/assets/js/tabs.js"></script>
+    <script src="../../static/assets/js/video.js"></script>
+    <script src="../../static/assets/js/slick-slider.js"></script>
+    <script src="../../static/assets/js/custom.js"></script>
+   
+</html>
