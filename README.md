@@ -3,11 +3,11 @@
 
 ## Install and Running
 
-1. `git clone git@github.com:marwan-kotb/Questionnaire-System.git`
+1. `git clone git@github.com:marwan-kotb/Questionnaire-System-With-AI.git`
 
 2. `cd Questionnaire-System`
 
-3. `source venv/bin/activate` OR `pip install -r requirements.txt`
+3. `pip install -r requirements.txt`
 
 4. `python manage.py makemigrations` and `python manage.py makemigrations Questionnaire`
 
