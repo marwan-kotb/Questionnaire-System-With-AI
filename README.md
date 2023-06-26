@@ -5,7 +5,7 @@
 
 1. `git clone git@github.com:marwan-kotb/Questionnaire-System-With-AI.git`
 
-2. `cd Questionnaire-System`
+2. `cd Questionnaire-System-With-AI`
 
 3. `pip install -r requirements.txt`
 
@@ -15,10 +15,9 @@
 
 6. `python manage.py createsuperuser`
 
-7. reactivate token.json by email and password that exist in EmailAndPassword.txt
+7. `python manage.py runserver`
 
-8. `python manage.py runserver`
-
+- reactivate token.json by email and password that exist in EmailAndPassword.txt
 
 ### Enjoy ^_^
 
