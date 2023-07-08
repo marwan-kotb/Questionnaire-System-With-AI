@@ -85,7 +85,100 @@ item.classList.add('visible');
   <div class="container">
     <h1>Feedback Results</h1>
     {% for question, percentages in question_percentages.items %}
+      
+        {% if question == 1 %}
         <h2>Question {{ question }}</h2>
+        <p>The course has clear and stated objectives</p>
+        {% elif question == 2 %}
+        <h2>Question {{ question }}</h2>
+        <p>The course develops the ability to think and innovate</p>
+        {% elif question == 3 %}
+        <h2>Question {{ question }}</h2>
+        <p>The course provides me with useful knowledge and understanding related</p>
+        {% elif question == 4 %}
+        <h2>Question {{ question }}</h2>
+        <p>The course combines theoretical and practical aspects</p>
+        {% elif question == 5 %}
+        <h2>Question {{ question }}</h2>
+        <p>The contents of the course are commensurate with the allotted time</p>
+        {% elif question == 6 %}
+        <h2>Question {{ question }}</h2>
+        <p>References are available in the collage library or in one of the<br> other electronic images</p>
+        {% elif question == 7 %}
+        <h2>Question {{ question }}</h2>
+        <p>Examinations reflect the content of the course and include<br> theoretical and practical aspects</p>
+        {% elif question == 8 %}
+        <h2>Question {{ question }}</h2>
+        <p>The language used in the exams is clear and understandable</p>
+        {% elif question == 9 %}
+        <h2>Question {{ question }}</h2>
+        <p>Exams do not contain typographical errors</p>
+        {% elif question == 10 %}
+        <h2>Question {{ question }}</h2>
+        <p>The lecturer explained the course contents and evaluation methods at the <br>start of the study</p>
+        {% elif question == 11 %}
+        <h2>Question {{ question }}</h2>
+        <p>The clarity of the lecturer's presentation of the scientific material of<br> the course</p>
+        {% elif question == 12 %}
+        <h2>Question {{ question }}</h2>
+        <p>The lecturer committed to attending the lectures on time and according to<br> the announced schedule</p>
+        {% elif question == 13 %}
+        <h2>Question {{ question }}</h2>
+        <p>The lecturer pavalue attention to the link between the scientific material<br> and the practical
+          applications
+          of the course topics</p>
+        {% elif question == 14 %}
+        <h2>Question {{ question }}</h2>
+        <p>The lecturer used a variety of appropriate teaching avalues to explain the<br> course</p>
+        {% elif question == 15 %}
+        <h2>Question {{ question }}</h2>
+        <p>Encourage the lecturer to discuss, comment, ask and answer questions</p>
+        {% elif question == 16 %}
+        <h2>Question {{ question }}</h2>
+        <p>The ability of the lecturer to manage and control the lecture</p>
+        {% elif question == 17 %}
+        <h2>Question {{ question }}</h2>
+        <p>The lecturer is equal in dealing with all students</p>
+        {% elif question == 18 %}
+        <h2>Question {{ question }}</h2>
+        <p>The lecturer is committed to being in his office during office hours<br> to communicate with
+          students</p>
+        {% elif question == 19 %}
+        <h2>Question {{ question }}</h2>
+        <p>Would you like to study other courses with the same lecturer in the future?</p>
+        {% elif question == 20 %}
+        <h2>Question {{ question }}</h2>
+        <p>The teaching assistant is committed to attending classes and laboratories<br> on time</p>
+        {% elif question == 21 %}
+        <h2>Question {{ question }}</h2>
+        <p>The teaching assistant encourages students to work in groups during<br> exercises and practical work</p>
+        {% elif question == 22 %}
+        <h2>Question {{ question }}</h2>
+        <p>The teaching assistant is equal in dealing with all students</p>
+        {% elif question == 23 %}
+        <h2>Question {{ question }}</h2>
+        <p>The teaching assistant deals with topics covering the practical and<br> applied aspects of the
+          course</p>
+        {% elif question == 24 %}
+        <h2>Question {{ question }}</h2>
+        <p>The teaching assistant invests the time of classes and laboratories in <br> and discussion and
+          provides sufficient applications</p>
+        {% elif question == 25 %}
+        <h2>Question {{ question }}</h2>
+        <p>Would you like to study other courses with the same teaching assistant<br> in the future?</p>
+        {% elif question == 26 %}
+        <h2>Question {{ question }}</h2>
+        <p>Level of satisfaction with hybrid education</p>
+        {% elif question == 27 %}
+        <h2>Question {{ question }}</h2>
+        <p>The extent to which the hybrid education system effectively <br>contributes to the success of the
+          educational process</p>
+        {% elif question == 28 %}
+        <h2>Question {{ question }}</h2>
+        <p>The effectiveness of the IT Unit's role in solving technical problems</p>
+        {% endif %}
+        <br>
+        
         <ul>
         {% for answer, percent in percentages.items %}
             {% if answer == 1 %}

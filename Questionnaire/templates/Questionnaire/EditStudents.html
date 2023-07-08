@@ -90,7 +90,7 @@
             border: 1px solid #ccc;
             padding: 5px;
             background-color: #f2f2f2;
-            width: 200px;
+            width: 500px;
             border-radius: 4px;
             text-align: center;
             justify-content: center;
@@ -102,7 +102,7 @@
         <label id="label_courses" for="courses">Courses</label>
         <select name="courses" id="courses" multiple required>
           {% for course in courses %}
-          <option value="{{course.id}}">{{course.CourseName}}</option>
+          <option value="{{course.id}}">{{course}}</option>
           {% endfor %}
         </select>
         <br>

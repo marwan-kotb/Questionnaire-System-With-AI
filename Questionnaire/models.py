@@ -79,7 +79,7 @@ class Course(models.Model):
     SemID = models.ManyToManyField(Semester, related_name="Sem")
 
     def __str__(self):
-        return self.CourseName
+        return self.CourseName + " " + self.SemID.all().first().__str__()
 
 
 class Lecture(models.Model):
